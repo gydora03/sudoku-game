@@ -7,10 +7,10 @@
     <groupId>hu.unideb.inf</groupId>
     <artifactId>sudoku-game</artifactId>
     <version>1.0</version>
-    <description>The rolling cubes puzzle game.</description>
+    <description>The sudoku puzzle game.</description>
     <scm>
-        <connection>https://github.com/jeszy75/rolling-cubes-game.git</connection>
-        <developerConnection>https://github.com/jeszy75/rolling-cubes-game.git</developerConnection>
+        <connection>scm:git:https://github.com/gydora03/sudoku-game.git</connection>
+        <developerConnection>scm:git:https://github.com/gydora03/sudoku-game.git</developerConnection>
     </scm>
     <developers>
         <developer>
@@ -27,7 +27,7 @@
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <exec.cleanupDaemonThreads>false</exec.cleanupDaemonThreads>
-        <exec.mainClass>rollingcubes.javafx.Main</exec.mainClass>
+        <exec.mainClass>sudoku.javafx.Main</exec.mainClass>
     </properties>
     <dependencies>
         <dependency>

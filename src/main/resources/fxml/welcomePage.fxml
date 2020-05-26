@@ -7,13 +7,14 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: #FFFFF0;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: #FFFFF0;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sudoku.javafx.controller.WelcomePageController">
    <children>
       <Label layoutX="198.0" layoutY="41.0" prefHeight="60.0" prefWidth="205.0" text="Welcome" textAlignment="CENTER" textFill="#310336">
          <font>
             <Font name="FreeSerif Bold" size="50.0" />
          </font>
       </Label>
+      <Label fx:id="errorLabel" layoutX="270.0" layoutY="190.0" prefHeight="16.0" prefWidth="151.0" />
       <HBox alignment="CENTER" layoutX="110.0" layoutY="261.0" prefHeight="96.0" prefWidth="380.0" spacing="15.0">
          <children>
             <Label text="Your name: " textFill="#280232">

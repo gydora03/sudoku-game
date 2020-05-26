@@ -8,7 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import lombok.extern.slf4j.Slf4j;
-import sudoku.result.GameResultDao;
+import sudoku.results.GameResultDao;
 import util.guice.PersistenceModule;
 
 import javax.inject.Inject;
@@ -21,24 +21,26 @@ public class SudokuApplication extends Application {
             new AbstractModule() {
                 @Override
                 protected void configure() {
-                    install(new PersistenceModule("rolling-cubes"));
+                    install(new PersistenceModule("sudoku"));
                     bind(GameResultDao.class);
                 }
             }
     ));
 
+    public static Stage stage;
+
     @Inject
     private FXMLLoader fxmlLoader;
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
+    public void start(Stage stage) throws Exception {
         log.info("Starting application...");
-        context.init();
-        fxmlLoader.setLocation(getClass().getResource("/fxml/launch.fxml"));
-        Parent root = fxmlLoader.load();
-        primaryStage.setTitle("Rolling Cubes");
-        primaryStage.setResizable(false);
-        primaryStage.setScene(new Scene(root));
-        primaryStage.show();
+        //SudokuApplication.stage = stage;
+        Parent root = fxmlLoader.load(getClass().getResource("/fxml/welcomePage.fxml"));
+        Scene scene = new Scene(root);
+        stage.setTitle("Sudoku");
+        stage.setResizable(false);
+        stage.setScene(scene);
+        stage.show();
     }
 }
