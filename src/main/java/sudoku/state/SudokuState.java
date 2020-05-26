@@ -44,37 +44,20 @@ public class SudokuState {
     };
 
 
-    public int[][] getInitial() {
-        return initialState;
-    }
-
-    public int[][] getSolution() {
-        return goalState;
-    }
-
-    public int[][] getCurrentState() {
-        return currentState;
-    }
-
-    /*public void modifyGameBoard(int num, int row, int col) {
-        if (initial[row][col] == 0) {
-            if (num >=0 && num <= 9) {
-                gameBoard[row][col] = num;
-            }
-            else {
-                //log
-                System.out.println("Value passed to game board is wrong");
-            }
+    public void modifyCurrentState(int val, int row, int col) {
+        if (initialState[row][col] == 0) {
+            if(val >=0 && val <= 9)
+                currentState[row][col] = val;
+            else
+                System.out.println("Value passed to player falls out of range");
         }
-    }*/
+    }
 
     public boolean checkForSolution() {
         for (int row = 0; row < 9; row++) {
             for (int col = 0; col < 9; col++) {
-                if (initialState[row][col] == 0) {
-                    if (currentState[row][col] != goalState[row][col]) {
-                        return false;
-                    }
+                if (currentState[row][col] != goalState[row][col]) {
+                    return false;
                 }
             }
         }

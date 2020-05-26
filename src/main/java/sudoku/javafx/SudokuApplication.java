@@ -38,6 +38,7 @@ public class SudokuApplication extends Application {
         //SudokuApplication.stage = stage;
         Parent root = fxmlLoader.load(getClass().getResource("/fxml/welcomePage.fxml"));
         Scene scene = new Scene(root);
+        scene.getStylesheets().add("css/style.css");
         stage.setTitle("Sudoku");
         stage.setResizable(false);
         stage.setScene(scene);

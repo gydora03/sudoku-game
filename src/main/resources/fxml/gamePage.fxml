@@ -3,17 +3,18 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sudoku.javafx.controller.GamePageController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: #FFFFF0;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sudoku.javafx.controller.GamePageController">
    <children>
-      <HBox alignment="CENTER" layoutX="27.0" layoutY="8.0" prefHeight="44.0" prefWidth="570.0">
+      <HBox alignment="CENTER" layoutX="3.0" layoutY="8.0" prefHeight="44.0" prefWidth="594.0">
          <children>
             <Label alignment="CENTER" text="Time: " textAlignment="CENTER">
                <HBox.margin>
@@ -23,26 +24,26 @@
                   <Font name="FreeSerif Italic" size="20.0" />
                </font>
             </Label>
-            <Label fx:id="stopWatchLabel" prefHeight="23.0" prefWidth="115.0" text="00:00:00">
+            <Label fx:id="stopWatchLabel" text="00:00:00">
                <HBox.margin>
-                  <Insets left="5.0" />
+                  <Insets left="5.0" right="40.0" />
                </HBox.margin>
                <font>
                   <Font name="FreeSerif" size="20.0" />
                </font>
                <padding>
-                  <Insets right="40.0" />
+                  <Insets right="60.0" />
                </padding>
             </Label>
             <Label text="Steps: ">
                <HBox.margin>
-                  <Insets left="15.0" right="5.0" />
+                  <Insets left="40.0" right="5.0" />
                </HBox.margin>
                <font>
                   <Font name="FreeSerif Italic" size="20.0" />
                </font>
                <padding>
-                  <Insets left="25.0" />
+                  <Insets left="40.0" />
                </padding>
             </Label>
             <Label fx:id="stepsLabel" prefHeight="23.0" prefWidth="38.0" text="0">
@@ -55,365 +56,191 @@
             </Label>
          </children>
       </HBox>
-      <GridPane alignment="CENTER" layoutX="125.0" layoutY="84.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="350.0" prefWidth="350.0">
+      <GridPane fx:id="numbersGrid" alignment="CENTER" layoutX="420.0" layoutY="105.0">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="500.0" minWidth="10.0" prefWidth="400.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="500.0" minWidth="10.0" prefWidth="400.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="500.0" minWidth="10.0" prefWidth="400.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="500.0" minWidth="10.0" prefWidth="400.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="500.0" minWidth="10.0" prefWidth="400.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="500.0" minWidth="10.0" prefWidth="400.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="500.0" minWidth="10.0" prefWidth="400.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="500.0" minWidth="10.0" prefWidth="400.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="500.0" minWidth="10.0" prefWidth="400.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="60.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="60.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="60.0" />
         </columnConstraints>
         <rowConstraints>
-            <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="300.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="300.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="300.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="300.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="300.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="300.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="300.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="300.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="300.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <TextField alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.rowIndex="2">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="2">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="3">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="4">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="5">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="6">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="7">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="8">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="1">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" layoutX="10.0" layoutY="55.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.rowIndex="1">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" layoutX="48.0" layoutY="55.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="8" GridPane.rowIndex="1">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" layoutX="48.0" layoutY="55.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="7" GridPane.rowIndex="1">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" layoutX="48.0" layoutY="55.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="6" GridPane.rowIndex="1">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" layoutX="48.0" layoutY="55.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="5" GridPane.rowIndex="1">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" layoutX="48.0" layoutY="55.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="4" GridPane.rowIndex="1">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" layoutX="48.0" layoutY="55.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="3" GridPane.rowIndex="1">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" layoutX="48.0" layoutY="55.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="2" GridPane.rowIndex="1">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" layoutX="10.0" layoutY="94.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="5" GridPane.rowIndex="2">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" layoutX="10.0" layoutY="94.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="3" GridPane.rowIndex="3">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" layoutX="10.0" layoutY="94.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="2" GridPane.rowIndex="3">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" layoutX="10.0" layoutY="94.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="3">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" layoutX="10.0" layoutY="94.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="2">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" layoutX="10.0" layoutY="94.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="4" GridPane.rowIndex="2">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" layoutX="10.0" layoutY="94.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="3" GridPane.rowIndex="2">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" layoutX="10.0" layoutY="94.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="2" GridPane.rowIndex="2">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" layoutX="10.0" layoutY="94.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.rowIndex="3">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" layoutX="10.0" layoutY="55.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="4" GridPane.rowIndex="4">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" layoutX="10.0" layoutY="94.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="3" GridPane.rowIndex="4">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" layoutX="10.0" layoutY="94.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="2" GridPane.rowIndex="4">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" layoutX="10.0" layoutY="94.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="4">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" layoutX="10.0" layoutY="94.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.rowIndex="4">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" layoutX="10.0" layoutY="94.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="8" GridPane.rowIndex="3">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" layoutX="10.0" layoutY="94.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="7" GridPane.rowIndex="3">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" layoutX="10.0" layoutY="94.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="6" GridPane.rowIndex="3">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" layoutX="10.0" layoutY="94.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="8" GridPane.rowIndex="2">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" layoutX="10.0" layoutY="94.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="7" GridPane.rowIndex="2">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" layoutX="10.0" layoutY="94.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="6" GridPane.rowIndex="2">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" layoutX="10.0" layoutY="94.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="5" GridPane.rowIndex="3">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" layoutX="10.0" layoutY="94.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="4" GridPane.rowIndex="3">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" layoutX="10.0" layoutY="94.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="6">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" layoutX="10.0" layoutY="94.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.rowIndex="6">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" layoutX="10.0" layoutY="94.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="8" GridPane.rowIndex="5">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" layoutX="10.0" layoutY="94.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="7" GridPane.rowIndex="5">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" layoutX="10.0" layoutY="94.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="6" GridPane.rowIndex="5">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" layoutX="10.0" layoutY="94.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="5" GridPane.rowIndex="5">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" layoutX="10.0" layoutY="94.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="4" GridPane.rowIndex="5">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" layoutX="10.0" layoutY="94.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="3" GridPane.rowIndex="5">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" layoutX="10.0" layoutY="94.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="2" GridPane.rowIndex="5">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" layoutX="10.0" layoutY="94.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="5">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" layoutX="10.0" layoutY="94.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.rowIndex="5">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" layoutX="10.0" layoutY="94.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="8" GridPane.rowIndex="4">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" layoutX="10.0" layoutY="94.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="7" GridPane.rowIndex="4">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" layoutX="10.0" layoutY="94.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="6" GridPane.rowIndex="4">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" layoutX="10.0" layoutY="94.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="5" GridPane.rowIndex="4">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" layoutX="10.0" layoutY="94.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.rowIndex="7">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" layoutX="10.0" layoutY="94.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="8" GridPane.rowIndex="6">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" layoutX="10.0" layoutY="94.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="7" GridPane.rowIndex="6">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" layoutX="10.0" layoutY="94.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="6" GridPane.rowIndex="6">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" layoutX="10.0" layoutY="94.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="5" GridPane.rowIndex="6">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" layoutX="10.0" layoutY="94.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="4" GridPane.rowIndex="6">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" layoutX="10.0" layoutY="94.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="3" GridPane.rowIndex="6">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" layoutX="10.0" layoutY="94.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="2" GridPane.rowIndex="6">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" layoutX="10.0" layoutY="94.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="6" GridPane.rowIndex="7">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" layoutX="10.0" layoutY="94.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="5" GridPane.rowIndex="7">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" layoutX="10.0" layoutY="94.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="4" GridPane.rowIndex="7">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" layoutX="10.0" layoutY="94.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="3" GridPane.rowIndex="7">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" layoutX="10.0" layoutY="94.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="2" GridPane.rowIndex="7">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" layoutX="10.0" layoutY="94.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="7">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" layoutX="10.0" layoutY="94.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="4" GridPane.rowIndex="8">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" layoutX="10.0" layoutY="94.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="3" GridPane.rowIndex="8">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" layoutX="10.0" layoutY="94.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="2" GridPane.rowIndex="8">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" layoutX="10.0" layoutY="94.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="8">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" layoutX="10.0" layoutY="94.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.rowIndex="8">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" layoutX="10.0" layoutY="94.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="8" GridPane.rowIndex="7">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" layoutX="10.0" layoutY="94.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="7" GridPane.rowIndex="7">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" layoutX="10.0" layoutY="94.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="7" GridPane.rowIndex="8">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" layoutX="10.0" layoutY="94.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="6" GridPane.rowIndex="8">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" layoutX="10.0" layoutY="94.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="5" GridPane.rowIndex="8">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" layoutX="10.0" layoutY="94.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
-            <TextField alignment="CENTER" layoutX="10.0" layoutY="94.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="8" GridPane.rowIndex="8">
-               <font>
-                  <Font name="FreeSerif Bold" size="20.0" />
-               </font></TextField>
+            <Button fx:id="buttonOne" mnemonicParsing="false" onMouseClicked="#buttonOnePressed" prefHeight="40.0" prefWidth="40.0" text="1" textAlignment="CENTER" textFill="#1b011b" GridPane.halignment="CENTER">
+               <font>
+                  <Font name="FreeSerif Bold" size="25.0" />
+               </font>
+            </Button>
+            <Button fx:id="buttonTwo" mnemonicParsing="false" onMouseClicked="#buttonTwoPressed" prefHeight="40.0" prefWidth="40.0" text="2" textAlignment="CENTER" textFill="#1b011b" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+               <font>
+                  <Font name="FreeSerif Bold" size="25.0" />
+               </font>
+            </Button>
+            <Button fx:id="buttonThree" mnemonicParsing="false" onMouseClicked="#buttonThreePressed" prefHeight="40.0" prefWidth="40.0" text="3" textAlignment="CENTER" textFill="#1b011b" GridPane.columnIndex="2" GridPane.halignment="CENTER">
+               <font>
+                  <Font name="FreeSerif Bold" size="25.0" />
+               </font>
+            </Button>
+            <Button fx:id="buttonFour" mnemonicParsing="false" onMouseClicked="#buttonFourPressed" prefHeight="40.0" prefWidth="40.0" text="4" textAlignment="CENTER" textFill="#1b011b" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+               <font>
+                  <Font name="FreeSerif Bold" size="25.0" />
+               </font>
+            </Button>
+            <Button fx:id="buttonFive" mnemonicParsing="false" onMouseClicked="#buttonFivePressed" prefHeight="40.0" prefWidth="40.0" text="5" textAlignment="CENTER" textFill="#1b011b" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+               <font>
+                  <Font name="FreeSerif Bold" size="25.0" />
+               </font>
+            </Button>
+            <Button fx:id="buttonSix" mnemonicParsing="false" onMouseClicked="#buttonSixPressed" prefHeight="40.0" prefWidth="40.0" text="6" textAlignment="CENTER" textFill="#1b011b" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+               <font>
+                  <Font name="FreeSerif Bold" size="25.0" />
+               </font>
+            </Button>
+            <Button fx:id="buttonSeven" mnemonicParsing="false" onMouseClicked="#buttonSevenPressed" prefHeight="40.0" prefWidth="40.0" text="7" textAlignment="CENTER" textFill="#1b011b" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+               <font>
+                  <Font name="FreeSerif Bold" size="25.0" />
+               </font>
+            </Button>
+            <Button fx:id="buttonEight" mnemonicParsing="false" onMouseClicked="#buttonEightPressed" prefHeight="40.0" prefWidth="40.0" text="8" textAlignment="CENTER" textFill="#1b011b" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+               <font>
+                  <Font name="FreeSerif Bold" size="25.0" />
+               </font>
+            </Button>
+            <Button fx:id="buttonNine" mnemonicParsing="false" onMouseClicked="#buttonNinePressed" prefHeight="40.0" prefWidth="40.0" text="9" textAlignment="CENTER" textFill="#1b011b" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+               <font>
+                  <Font name="FreeSerif Bold" size="25.0" />
+               </font>
+            </Button>
          </children>
       </GridPane>
-      <Button fx:id="resetButton" layoutX="14.0" layoutY="449.0" mnemonicParsing="false" text="Reset">
-         <font>
-            <Font name="FreeSerif" size="20.0" />
-         </font>
-      </Button>
-      <Button fx:id="giveUpButton" layoutX="490.0" layoutY="449.0" mnemonicParsing="false" text="Give Up">
-         <font>
-            <Font name="FreeSerif" size="20.0" />
-         </font>
-      </Button>
+      <VBox alignment="CENTER" layoutX="460.0" layoutY="349.0" prefHeight="80.0" prefWidth="100.0">
+         <children>
+            <Button fx:id="resetButton" mnemonicParsing="false" text="Reset">
+               <font>
+                  <Font name="FreeSerif" size="20.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="giveUpButton" mnemonicParsing="false" text="Give Up">
+               <font>
+                  <Font name="FreeSerif" size="20.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+      <GridPane fx:id="sudokuGrid" alignment="CENTER" layoutX="25.0" layoutY="93.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="370.0" prefWidth="370.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="500.0" minWidth="10.0" prefWidth="400.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="500.0" minWidth="10.0" prefWidth="400.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="500.0" minWidth="10.0" prefWidth="400.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="500.0" minWidth="10.0" prefWidth="400.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="500.0" minWidth="10.0" prefWidth="400.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="500.0" minWidth="10.0" prefWidth="400.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="500.0" minWidth="10.0" prefWidth="400.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="500.0" minWidth="10.0" prefWidth="400.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="500.0" minWidth="10.0" prefWidth="400.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="300.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="300.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="300.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="300.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="300.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="300.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="300.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="300.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="300.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="0" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="0" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="0" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="0" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="0" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="1" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="1" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="2" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="2" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="2" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="3" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="3" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="3" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="4" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="4" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="4" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="5" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="5" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="5" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="5" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="6" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="6" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="6" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="6" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="6" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.rowIndex="7" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="7" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="7" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="7" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="7" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="7" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="7" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.rowIndex="8" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="8" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="8" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="8" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="8" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="8" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="8" />
+
+         </children>
+      </GridPane>
    </children>
 </Pane>

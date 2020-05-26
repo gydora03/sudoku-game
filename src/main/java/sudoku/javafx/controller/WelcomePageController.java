@@ -11,6 +11,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import lombok.extern.slf4j.Slf4j;
 import sudoku.javafx.SudokuApplication;
+import sudoku.state.SudokuState;
 
 import javax.inject.Inject;
 import java.io.IOException;
@@ -32,8 +33,14 @@ public class WelcomePageController {
             errorLabel.setText("Enter your name!");
             log.error("Missing player name!", playerNameTextField.getText());
         } else {
-            Parent parent = FXMLLoader.load(getClass().getResource("/fxml/gamePage.fxml"));
-            Scene scene = new Scene(parent);
+            Parent root = FXMLLoader.load(getClass().getResource("/fxml/gamePage.fxml"));
+            for(int i = 0; i < 9; i++) {
+                for(int j = 0; j < 9; j++) {
+                    SudokuState.currentState[i][j] = SudokuState.initialState[i][j];
+                }
+                System.out.println();
+            }
+            Scene scene = new Scene(root);
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             stage.setScene(scene);
             stage.show();
