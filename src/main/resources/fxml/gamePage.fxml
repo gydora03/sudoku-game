@@ -68,47 +68,47 @@
           <RowConstraints minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="buttonOne" mnemonicParsing="false" onMouseClicked="#buttonOnePressed" prefHeight="40.0" prefWidth="40.0" text="1" textAlignment="CENTER" textFill="#1b011b" GridPane.halignment="CENTER">
+            <Button fx:id="buttonOne" mnemonicParsing="false" onMouseClicked="#handleClickOnNumbersGrid" prefHeight="40.0" prefWidth="40.0" text="1" textAlignment="CENTER" textFill="#1b011b" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0">
                <font>
                   <Font name="FreeSerif Bold" size="25.0" />
                </font>
             </Button>
-            <Button fx:id="buttonTwo" mnemonicParsing="false" onMouseClicked="#buttonTwoPressed" prefHeight="40.0" prefWidth="40.0" text="2" textAlignment="CENTER" textFill="#1b011b" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+            <Button fx:id="buttonTwo" mnemonicParsing="false" onMouseClicked="#handleClickOnNumbersGrid" prefHeight="40.0" prefWidth="40.0" text="2" textAlignment="CENTER" textFill="#1b011b" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="0">
                <font>
                   <Font name="FreeSerif Bold" size="25.0" />
                </font>
             </Button>
-            <Button fx:id="buttonThree" mnemonicParsing="false" onMouseClicked="#buttonThreePressed" prefHeight="40.0" prefWidth="40.0" text="3" textAlignment="CENTER" textFill="#1b011b" GridPane.columnIndex="2" GridPane.halignment="CENTER">
+            <Button fx:id="buttonThree" mnemonicParsing="false" onMouseClicked="#handleClickOnNumbersGrid" prefHeight="40.0" prefWidth="40.0" text="3" textAlignment="CENTER" textFill="#1b011b" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="0">
                <font>
                   <Font name="FreeSerif Bold" size="25.0" />
                </font>
             </Button>
-            <Button fx:id="buttonFour" mnemonicParsing="false" onMouseClicked="#buttonFourPressed" prefHeight="40.0" prefWidth="40.0" text="4" textAlignment="CENTER" textFill="#1b011b" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+            <Button fx:id="buttonFour" mnemonicParsing="false" onMouseClicked="#handleClickOnNumbersGrid" prefHeight="40.0" prefWidth="40.0" text="4" textAlignment="CENTER" textFill="#1b011b" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                <font>
                   <Font name="FreeSerif Bold" size="25.0" />
                </font>
             </Button>
-            <Button fx:id="buttonFive" mnemonicParsing="false" onMouseClicked="#buttonFivePressed" prefHeight="40.0" prefWidth="40.0" text="5" textAlignment="CENTER" textFill="#1b011b" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+            <Button fx:id="buttonFive" mnemonicParsing="false" onMouseClicked="#handleClickOnNumbersGrid" prefHeight="40.0" prefWidth="40.0" text="5" textAlignment="CENTER" textFill="#1b011b" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                <font>
                   <Font name="FreeSerif Bold" size="25.0" />
                </font>
             </Button>
-            <Button fx:id="buttonSix" mnemonicParsing="false" onMouseClicked="#buttonSixPressed" prefHeight="40.0" prefWidth="40.0" text="6" textAlignment="CENTER" textFill="#1b011b" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+            <Button fx:id="buttonSix" mnemonicParsing="false" onMouseClicked="#handleClickOnNumbersGrid" prefHeight="40.0" prefWidth="40.0" text="6" textAlignment="CENTER" textFill="#1b011b" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                <font>
                   <Font name="FreeSerif Bold" size="25.0" />
                </font>
             </Button>
-            <Button fx:id="buttonSeven" mnemonicParsing="false" onMouseClicked="#buttonSevenPressed" prefHeight="40.0" prefWidth="40.0" text="7" textAlignment="CENTER" textFill="#1b011b" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+            <Button fx:id="buttonSeven" mnemonicParsing="false" onMouseClicked="#handleClickOnNumbersGrid" prefHeight="40.0" prefWidth="40.0" text="7" textAlignment="CENTER" textFill="#1b011b" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                <font>
                   <Font name="FreeSerif Bold" size="25.0" />
                </font>
             </Button>
-            <Button fx:id="buttonEight" mnemonicParsing="false" onMouseClicked="#buttonEightPressed" prefHeight="40.0" prefWidth="40.0" text="8" textAlignment="CENTER" textFill="#1b011b" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+            <Button fx:id="buttonEight" mnemonicParsing="false" onMouseClicked="#handleClickOnNumbersGrid" prefHeight="40.0" prefWidth="40.0" text="8" textAlignment="CENTER" textFill="#1b011b" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                <font>
                   <Font name="FreeSerif Bold" size="25.0" />
                </font>
             </Button>
-            <Button fx:id="buttonNine" mnemonicParsing="false" onMouseClicked="#buttonNinePressed" prefHeight="40.0" prefWidth="40.0" text="9" textAlignment="CENTER" textFill="#1b011b" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+            <Button fx:id="buttonNine" mnemonicParsing="false" onMouseClicked="#handleClickOnNumbersGrid" prefHeight="40.0" prefWidth="40.0" text="9" textAlignment="CENTER" textFill="#1b011b" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                <font>
                   <Font name="FreeSerif Bold" size="25.0" />
                </font>
@@ -117,7 +117,7 @@
       </GridPane>
       <VBox alignment="CENTER" layoutX="460.0" layoutY="349.0" prefHeight="80.0" prefWidth="100.0">
          <children>
-            <Button fx:id="resetButton" mnemonicParsing="false" text="Reset">
+            <Button fx:id="resetButton" mnemonicParsing="false" onAction="#handleResetButton" text="Reset">
                <font>
                   <Font name="FreeSerif" size="20.0" />
                </font>
@@ -125,7 +125,7 @@
                   <Insets bottom="10.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="giveUpButton" mnemonicParsing="false" text="Give Up">
+            <Button fx:id="giveUpButton" mnemonicParsing="false" onAction="#handleGiveUpButton" text="Give Up">
                <font>
                   <Font name="FreeSerif" size="20.0" />
                </font>
@@ -159,86 +159,87 @@
             <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="300.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="0" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="0" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="0" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="0" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="0" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="0" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="0" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="1" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="1" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="1" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="1" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="2" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="2" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="2" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="2" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="2" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.rowIndex="3" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="3" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="3" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="3" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="3" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="3" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.rowIndex="4" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="4" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="4" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="4" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="4" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="4" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.rowIndex="5" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="5" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="5" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="5" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="5" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="5" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="5" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.rowIndex="6" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="6" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="6" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="6" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="6" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="6" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="6" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="6" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.rowIndex="7" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="7" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="7" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="7" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="7" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="7" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="7" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.rowIndex="8" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="8" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="8" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="8" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="8" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="8" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="8" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="8" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="8" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="8" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="8" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="8" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="8" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="8" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="8" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="8" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="11.0" layoutY="11.0" onMouseClicked="#handleClickOnSudokuGrid" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="8" GridPane.valignment="CENTER" />
 
          </children>
       </GridPane>

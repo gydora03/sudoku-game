@@ -12,6 +12,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
@@ -23,13 +26,16 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.stage.Stage;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.time.DurationFormatUtils;
+import sudoku.javafx.SudokuApplication;
 import sudoku.results.GameResult;
 import sudoku.results.GameResultDao;
 import sudoku.state.SudokuState;
 
 import javax.inject.Inject;
+import java.io.IOException;
 import java.net.URL;
 import java.time.Duration;
 import java.time.Instant;
@@ -50,7 +56,7 @@ public class GamePageController {
     private SudokuState gameState;
     private IntegerProperty steps = new SimpleIntegerProperty();
     private Instant startTime;
-    private List<Image> numberImages;
+
 
     @FXML
     private GridPane sudokuGrid;
@@ -75,10 +81,6 @@ public class GamePageController {
     @FXML Button buttonSeven;
     @FXML Button buttonEight;
     @FXML Button buttonNine;
-    @FXML Canvas canvas;
-
-    int player_selected_row;
-    int player_selected_col;
 
     @FXML
     private Button resetButton;
@@ -92,20 +94,19 @@ public class GamePageController {
         this.playerName = playerName;
     }
 
+
+
+
+
+    private int selectedRow = -1;
+    private int selectedCol = -1;
+    public int pressedButton = 0;
+
+
+
     /*@FXML
     public void initialize() {
-        numberImages = List.of(
-                new Image(getClass().getResource("/images/empty.png").toExternalForm()),
-                new Image(getClass().getResource("/images/1.png").toExternalForm()),
-                new Image(getClass().getResource("/images/2.png").toExternalForm()),
-                new Image(getClass().getResource("/images/3.png").toExternalForm()),
-                new Image(getClass().getResource("/images/4.png").toExternalForm()),
-                new Image(getClass().getResource("/images/5.png").toExternalForm()),
-                new Image(getClass().getResource("/images/6.png").toExternalForm()),
-                new Image(getClass().getResource("/images/7.png").toExternalForm()),
-                new Image(getClass().getResource("/images/8.png").toExternalForm()),
-                new Image(getClass().getResource("/images/9.png").toExternalForm())
-        );
+
         stepsLabel.textProperty().bind(steps.asString());
         gameOver.addListener((observable, oldValue, newValue) -> {
             if (newValue) {
@@ -116,16 +117,14 @@ public class GamePageController {
             }
         });
         resetGame();
-    }
+    }*/
 
     private void resetGame() {
         for(int i = 0; i < 9; i++) {
             for(int j = 0; j < 9; j++) {
                 SudokuState.currentState[i][j] = SudokuState.initialState[i][j];
             }
-            System.out.println();
         }
-
         steps.setValue(0);
         stepsLabel.setText(steps.asString().get());
         startTime = Instant.now();
@@ -133,6 +132,58 @@ public class GamePageController {
         displayGameState();
         createStopWatch();
     }
+
+    public void handleResetButton(ActionEvent actionEvent)  {
+        log.debug("{} is pressed", ((Button) actionEvent.getSource()).getText());
+        log.info("Resetting game...");
+        resetGame();
+    }
+
+    /*public void handleGiveUpButton(ActionEvent actionEvent) throws IOException {
+        for(int i = 0; i < 9; i++) {
+            for(int j = 0; j < 9; j++) {
+                SudokuState.currentState[i][j] = SudokuState.initialState[i][j];
+            }
+            System.out.println();
+        }
+        gameOver.setValue(true);
+        log.info("Loading high scores scene...");
+
+        Parent parent = FXMLLoader.load(getClass().getResource("/fxml/scoresPage.fxml"));
+        Scene scene = new Scene(parent);
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }*/
+
+    public void handleClickOnNumbersGrid(MouseEvent mouseEvent) {
+        int row = numbersGrid.getRowIndex((Node) mouseEvent.getSource());
+        int col = numbersGrid.getColumnIndex((Node) mouseEvent.getSource());
+        pressedButton = row*3+col+1;
+        System.out.println("pressedButton: " + pressedButton);
+    }
+
+
+    public void handleClickOnSudokuGrid(MouseEvent mouseEvent) {
+
+        int row = sudokuGrid.getRowIndex((Node) mouseEvent.getSource());
+        int col = sudokuGrid.getColumnIndex((Node) mouseEvent.getSource());
+        log.info("Index ({}, {}) is chosen.", row, col);
+        if (SudokuState.initialState[row][col]==0) {
+            SudokuState.currentState[row][col] = pressedButton;
+            steps.setValue(steps.get()+1);
+            stepsLabel.setText(steps.asString().get());
+        }
+
+        displayGameState();
+        if (gameState.checkForSolution()) {
+            gameOver.setValue(true);
+            //log.info("Player {} has solved the game in {} steps", playerName, steps.get());
+            resetButton.setDisable(true);
+            giveUpButton.setText("Game Over");
+        }
+    }
+
 
     private void displayGameState() {
         for (int i = 0; i < 9; i++) {
@@ -141,114 +192,14 @@ public class GamePageController {
                 if (view.getImage() != null) {
                     log.trace("Image({}, {}) = {}", i, j, view.getImage().getUrl());
                 }
-                if(SudokuState.currentState[i][j] != 0){
-                    view.setImage(numberImages.get(SudokuState.currentState[i][j]));
+                if(SudokuState.currentState[i][j] == 0){
+                    view.setImage(SudokuApplication.numberImages.get(0));
+                } else {
+                    view.setImage(SudokuApplication.numberImages.get(SudokuState.currentState[i][j]));
                 }
             }
         }
-    }*/
-
-
-    public void buttonOnePressed(MouseEvent mouseEvent) {
-        System.out.println("1 button");
     }
-
-    /***
-     * Method connected with a button onclick event handler
-     */
-    public void buttonTwoPressed(MouseEvent mouseEvent) {
-        System.out.println("2 button");
-    }
-
-    /***
-     * Method connected with a button onclick event handler
-     */
-    public void buttonThreePressed(MouseEvent mouseEvent) {
-        System.out.println("3 button");
-    }
-
-    /***
-     * Method connected with a button onclick event handler
-     */
-    public void buttonFourPressed(MouseEvent mouseEvent) {
-        System.out.println("4 button");
-    }
-
-    /***
-     * Method connected with a button onclick event handler
-     */
-    public void buttonFivePressed(MouseEvent mouseEvent) {
-        System.out.println("5 button");
-    }
-
-    /***
-     * Method connected with a button onclick event handler
-     */
-    public void buttonSixPressed(MouseEvent mouseEvent) {
-        System.out.println("6 button");
-
-    }
-
-    /***
-     * Method connected with a button onclick event handler
-     */
-    public void buttonSevenPressed(MouseEvent mouseEvent) {
-        System.out.println("7 button");
-    }
-
-    /***
-     * Method connected with a button onclick event handler
-     */
-    public void buttonEightPressed(MouseEvent mouseEvent) {
-        System.out.println("8 button");
-    }
-
-    /***
-     * Method connected with a button onclick event handler
-     */
-    public void buttonNinePressed(MouseEvent mouseEvent) {
-        System.out.println("9 button");
-    }
-
-
-    /*public void initialize() {
-        gameOver.addListener((observable, oldValue, newValue) -> {
-            if (newValue) {
-                log.info("Game is over");
-                log.debug("Saving result to database...");
-                stopWatchTimeline.stop();
-                gameResultDao.persist(createGameResult());
-            }
-        });
-        resetGame();
-    }*/
-
-    /*public void displayGameState() {
-        for (int i = 0; i < 9; i++) {
-            for (int j = 0; j < 9; j++) {
-                TextField textField = (TextField) gameTable.getChildren().get(i*9+j);
-                if (SudokuState.currentState[i][j] != 0) {
-                    textField.setText(String.valueOf(SudokuState.currentState[i][j]));
-                }
-            }
-        }
-    }*/
-
-    /*private void resetGame() {
-        for(int i = 0; i < 3; i++) {
-            for(int j = 0; j < 3; j++) {
-                SudokuState.currentState[i][j] = SudokuState.initialState[i][j];
-            }
-            System.out.println();
-        }
-
-        steps.setValue(0);
-        stepsLabel.setText(steps.asString().get());
-        startTime = Instant.now();
-        gameOver.setValue(false);
-        displayGameState();
-        createStopWatch();
-    }*/
 
 
 
