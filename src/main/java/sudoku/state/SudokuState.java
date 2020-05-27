@@ -44,15 +44,6 @@ public class SudokuState {
     };
 
 
-    public void modifyCurrentState(int val, int row, int col) {
-        if (initialState[row][col] == 0) {
-            if(val >=0 && val <= 9)
-                currentState[row][col] = val;
-            else
-                System.out.println("Value passed to player falls out of range");
-        }
-    }
-
     public boolean checkForSolution() {
         for (int row = 0; row < 9; row++) {
             for (int col = 0; col < 9; col++) {
@@ -61,37 +52,42 @@ public class SudokuState {
                 }
             }
         }
+
         return true;
     }
 
 
-    /*public boolean checkForRules() {
-
-        int[][] full = new int[9][9];
-        int[] included;
+    public boolean checkForRules() {
         int sum = 0;
-
-        for (int row = 0; row < 9; row++) {
-            for (int col = 0; col < 9; col++) {
-                if (initial[row][col] == 0) {
-                    full[row][col] = gameBoard[row][col];
-                } else {
-                    full[row][col] = initial[row][col];
-                }
-            }
-        }
-
         for (int row = 0; row < 9; row++) {
             sum = 0;
-            included = new int[9];
             for (int col = 0; col < 9; col++) {
-                sum = sum + full[row][col];
-                included[full[row][col]-1]++;
+                sum = sum + currentState[row][col];
+            }
+            if(sum!=45) {
+                return false;
             }
         }
 
+        for (int col = 0; col < 9; col++) {
+            sum = 0;
+            for (int row = 0; row < 9; row++) {
+                sum = sum + currentState[row][col];
+            }
+            if(sum!=45) {
+                return false;
+            }
+        }
 
         return true;
-    }*/
+    }
+
+    public boolean isGoal() {
+        boolean isOk = false;
+        if (checkForSolution()==true || checkForRules()==true) {
+            isOk = true;
+        }
+        return isOk;
+    }
 
 }

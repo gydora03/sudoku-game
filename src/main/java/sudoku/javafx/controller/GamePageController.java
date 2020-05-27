@@ -19,13 +19,10 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.time.DurationFormatUtils;
@@ -36,12 +33,10 @@ import sudoku.state.SudokuState;
 
 import javax.inject.Inject;
 import java.io.IOException;
-import java.net.URL;
 import java.time.Duration;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
-import java.util.List;
-import java.util.ResourceBundle;
+
 
 @Slf4j
 public class GamePageController {
@@ -57,12 +52,13 @@ public class GamePageController {
     private IntegerProperty steps = new SimpleIntegerProperty();
     private Instant startTime;
 
-
     @FXML
     private GridPane sudokuGrid;
 
     @FXML
     private GridPane numbersGrid;
+
+    public int pressedButton = 0;
 
     @FXML
     private Label stepsLabel;
@@ -71,16 +67,6 @@ public class GamePageController {
     private Label stopWatchLabel;
 
     private Timeline stopWatchTimeline;
-
-    @FXML Button buttonOne;
-    @FXML Button buttonTwo;
-    @FXML Button buttonThree;
-    @FXML Button buttonFour;
-    @FXML Button buttonFive;
-    @FXML Button buttonSix;
-    @FXML Button buttonSeven;
-    @FXML Button buttonEight;
-    @FXML Button buttonNine;
 
     @FXML
     private Button resetButton;
@@ -97,16 +83,8 @@ public class GamePageController {
 
 
 
-
-    private int selectedRow = -1;
-    private int selectedCol = -1;
-    public int pressedButton = 0;
-
-
-
     /*@FXML
     public void initialize() {
-
         stepsLabel.textProperty().bind(steps.asString());
         gameOver.addListener((observable, oldValue, newValue) -> {
             if (newValue) {
@@ -139,22 +117,21 @@ public class GamePageController {
         resetGame();
     }
 
-    /*public void handleGiveUpButton(ActionEvent actionEvent) throws IOException {
+    public void handleGiveUpButton(ActionEvent actionEvent) throws IOException {
         for(int i = 0; i < 9; i++) {
             for(int j = 0; j < 9; j++) {
                 SudokuState.currentState[i][j] = SudokuState.initialState[i][j];
             }
-            System.out.println();
         }
         gameOver.setValue(true);
         log.info("Loading high scores scene...");
 
-        Parent parent = FXMLLoader.load(getClass().getResource("/fxml/scoresPage.fxml"));
-        Scene scene = new Scene(parent);
+        Parent root = fxmlLoader.load(getClass().getResource("/fxml/scoresPage.fxml"));
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        stage.setScene(scene);
+        stage.setScene(new Scene(root));
         stage.show();
-    }*/
+        SudokuApplication.stage.getScene().setRoot(root);
+    }
 
     public void handleClickOnNumbersGrid(MouseEvent mouseEvent) {
         int row = numbersGrid.getRowIndex((Node) mouseEvent.getSource());
@@ -176,9 +153,9 @@ public class GamePageController {
         }
 
         displayGameState();
-        if (gameState.checkForSolution()) {
+        if (gameState.isGoal()) {
             gameOver.setValue(true);
-            //log.info("Player {} has solved the game in {} steps", playerName, steps.get());
+            log.info("Player {} has solved the game in {} steps", playerName, steps.get());
             resetButton.setDisable(true);
             giveUpButton.setText("Game Over");
         }

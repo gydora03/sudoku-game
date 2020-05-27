@@ -7,24 +7,29 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="700.0" style="-fx-background-color: #FFFFF0;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sudoku.javafx.controller.ScoresPageController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sudoku.javafx.controller.ScoresPageController">
    <children>
-      <TableView fx:id="highScoreTable" editable="true" layoutX="25.0" layoutY="75.0" prefHeight="550.0" prefWidth="650.0">
+      <TableView fx:id="highScoreTable" editable="true" layoutX="25.0" layoutY="68.0" prefHeight="364.0" prefWidth="551.0">
         <columns>
-          <TableColumn fx:id="player" prefWidth="200.0" text="Player" />
-          <TableColumn fx:id="steps" prefWidth="50.0" text="Steps" />
-            <TableColumn fx:id="duration" prefWidth="100.0" text="Duration" />
-            <TableColumn fx:id="created" prefWidth="295.0" text="Date" />
+          <TableColumn fx:id="player" prefWidth="160.0" text="Player" />
+          <TableColumn fx:id="steps" prefWidth="110.0" text="Steps" />
+            <TableColumn fx:id="duration" prefWidth="110.0" text="Duration" />
+            <TableColumn fx:id="created" prefWidth="180.0" text="Date" />
         </columns>
       </TableView>
-      <Label layoutX="273.0" layoutY="24.0" text="High Scores">
+      <Label layoutX="213.0" layoutY="14.0" text="High Scores">
          <font>
-            <Font name="FreeSerif Bold" size="30.0" />
+            <Font name="FreeSerif Bold" size="34.0" />
          </font>
       </Label>
-      <Button layoutX="300.0" layoutY="636.0" mnemonicParsing="false" onAction="#handleRestartButton" prefHeight="50.0" prefWidth="100.0" text="Restart" textAlignment="CENTER">
+      <Button fx:id="restartButton" layoutX="113.0" layoutY="446.0" mnemonicParsing="false" onAction="#handleRestartButton" prefHeight="40.0" prefWidth="100.0" text="Restart" textAlignment="CENTER">
          <font>
             <Font name="FreeSerif" size="20.0" />
          </font></Button>
+      <Button layoutX="389.0" layoutY="446.0" mnemonicParsing="false" onAction="#exitGame" prefHeight="40.0" prefWidth="100.0" text="Exit" textAlignment="CENTER">
+         <font>
+            <Font name="FreeSerif" size="20.0" />
+         </font>
+      </Button>
    </children>
 </Pane>
