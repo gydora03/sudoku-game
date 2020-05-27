@@ -119,6 +119,7 @@ public class GamePageController {
     public void handleCheckButton(ActionEvent actionEvent) {
         log.debug("{} is pressed", ((Button) actionEvent.getSource()).getText());
         int isZero = 0;
+
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
                 System.out.print(SudokuState.currentState[i][j] + " ");
@@ -128,6 +129,7 @@ public class GamePageController {
             }
             System.out.println();
         }
+
         if (isZero == 0) {
             if (SudokuState.checkForRules()) {
                 gameOver.setValue(true);
