@@ -47,18 +47,19 @@ public class SudokuState {
     public boolean checkForSolution() {
         for (int row = 0; row < 9; row++) {
             for (int col = 0; col < 9; col++) {
-                if (currentState[row][col] != goalState[row][col]) {
+                if (currentState[row][col] == goalState[row][col]) { }
+                else {
                     return false;
                 }
             }
         }
-
         return true;
     }
 
 
     public boolean checkForRules() {
         int sum = 0;
+
         for (int row = 0; row < 9; row++) {
             sum = 0;
             for (int col = 0; col < 9; col++) {
@@ -76,6 +77,20 @@ public class SudokuState {
             }
             if(sum!=45) {
                 return false;
+            }
+        }
+
+        for (int row_offset = 0; row_offset < 9; row_offset+=3) {
+            for(int col_offset = 0; col_offset <9; col_offset+=3) {
+                sum = 0;
+                for (int row = 0; row < 3; row++) {
+                    for (int col = 0; col < 3; col++) {
+                        sum = sum + currentState[row + row_offset][col + col_offset];
+                    }
+                }
+                if(sum!=45) {
+                    return false;
+                }
             }
         }
 
