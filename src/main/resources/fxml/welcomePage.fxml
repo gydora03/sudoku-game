@@ -16,7 +16,7 @@
             <Image url="@../images/background1.png" />
          </image>
       </ImageView>
-      <Label fx:id="errorLabel" layoutX="240.0" layoutY="190.0" prefHeight="16.0" prefWidth="151.0" />
+      <Label fx:id="errorLabel" layoutX="240.0" layoutY="210.0" prefHeight="16.0" prefWidth="151.0" />
       <HBox alignment="CENTER" layoutX="110.0" layoutY="261.0" prefHeight="96.0" prefWidth="380.0" spacing="15.0">
          <children>
             <Label text="Your name: " textFill="#280232">

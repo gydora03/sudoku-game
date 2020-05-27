@@ -26,6 +26,7 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.time.DurationFormatUtils;
+import org.checkerframework.checker.units.qual.A;
 import sudoku.javafx.SudokuApplication;
 import sudoku.results.GameResult;
 import sudoku.results.GameResultDao;
@@ -74,6 +75,9 @@ public class GamePageController {
     @FXML
     private Button giveUpButton;
 
+    @FXML
+    private Button checkButton;
+
     private BooleanProperty gameOver = new SimpleBooleanProperty();
 
     public void setPlayerName(String playerName) {
@@ -107,6 +111,35 @@ public class GamePageController {
         gameOver.setValue(false);
         displayGameState();
         createStopWatch();
+    }
+
+    public void handleCheckButton(ActionEvent actionEvent) {
+        log.debug("{} is pressed", ((Button) actionEvent.getSource()).getText());
+        int isZero = 0;
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                System.out.print(SudokuState.currentState[i][j] + " ");
+                if (SudokuState.currentState[i][j] == 0) {
+                    isZero++;
+                }
+            }
+            System.out.println();
+        }
+        if (isZero == 0) {
+            System.out.println("if isZero = 0, benne vagyunk");
+            if (gameState.checkForRules()) {
+                System.out.println("belelepunk a kocsogbe");
+                //gameOver.setValue(true);
+                System.out.println("THE GAME IS SOLVED");
+                //log.info("Player {} has solved the game in {} steps", playerName, steps.get());
+                resetButton.setDisable(true);
+                giveUpButton.setText("Game Over");
+            } else {
+                System.out.println("The sudoku table is not solved");
+            }
+        } else {
+            System.out.println("The sudoku is not completely filled");
+        }
     }
 
     public void handleResetButton(ActionEvent actionEvent)  {
@@ -151,28 +184,14 @@ public class GamePageController {
             stepsLabel.setText(steps.asString().get());
         }
         displayGameState();
-        int isZero = 0;
+
+        log.info("The current state:");
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
                 System.out.print(SudokuState.currentState[i][j] + " ");
-                if (SudokuState.currentState[i][j] == 0) {
-                    isZero++;
-                }
             }
             System.out.println();
         }
-        if (isZero == 0) {
-            System.out.println("if isZero = 0, benne vagyunk");
-            if (gameState.isGoal()) {
-                System.out.println("belelepunk a kocsogbe");
-                gameOver.setValue(true);
-                System.out.println("THE GAME IS SOLVED");
-                //log.info("Player {} has solved the game in {} steps", playerName, steps.get());
-                resetButton.setDisable(true);
-                giveUpButton.setText("Game Over");
-            }
-        }
-
     }
 
 
