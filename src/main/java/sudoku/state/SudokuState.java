@@ -3,10 +3,16 @@ package sudoku.state;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * Class representing the state of the puzzle.
+ */
 @Data
 @Slf4j
-public class SudokuState {
+public class SudokuState implements Cloneable {
 
+    /**
+     * The array representing the initial configuration of the game.
+     */
     public static final int[][] initialState = {
             {0, 0, 0, 4, 0, 0, 0, 9, 0},
             {6, 0, 7, 0, 0, 0, 8, 0, 4},
@@ -19,6 +25,9 @@ public class SudokuState {
             {0, 7, 0, 0, 0, 4, 0, 0, 0}
     };
 
+    /**
+     * The array representing a goal configuration of the game.
+     */
     public static final int[][] goalState = {
             {5, 3, 8, 4, 6, 1, 7, 9, 2},
             {6, 9, 7, 3, 2, 5, 8, 1, 4},
@@ -31,6 +40,9 @@ public class SudokuState {
             {1, 7, 5, 6, 3, 4, 2, 8, 9}
     };
 
+    /**
+     * The array representing the current configuration of the game.
+     */
     public static int[][] currentState = {
             {0, 0, 0, 4, 0, 0, 0, 9, 0},
             {6, 0, 7, 0, 0, 0, 8, 0, 4},
@@ -43,12 +55,17 @@ public class SudokuState {
             {0, 7, 0, 0, 0, 4, 0, 0, 0}
     };
 
-
+    /**
+     * Check the sudoku table
+     *
+     * @return {@code true} if the game is solved, {@code false} otherwise
+     */
     public boolean checkForSolution() {
-        for (int row = 0; row < 9; row++) {
-            for (int col = 0; col < 9; col++) {
-                if (currentState[row][col] == goalState[row][col]) { }
-                else {
+        System.out.println("checkforsolution huhuuu");
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (currentState[i][j] == goalState[i][j]) {
+                } else {
                     return false;
                 }
             }
@@ -56,9 +73,14 @@ public class SudokuState {
         return true;
     }
 
-
+    /**
+     * Checks the sudoku rules.
+     *
+     * @return {@code true} if the game is solved and the rules are correct, {@code false} otherwise
+     */
     public boolean checkForRules() {
         int sum = 0;
+        System.out.println("checkforRule huhuuu");
 
         for (int row = 0; row < 9; row++) {
             sum = 0;
@@ -93,16 +115,16 @@ public class SudokuState {
                 }
             }
         }
-
         return true;
     }
 
     public boolean isGoal() {
-        boolean isOk = false;
+        System.out.println("isgoal huhuuu");
         if (checkForSolution()==true || checkForRules()==true) {
-            isOk = true;
+            System.out.println("isGOAL if");
+            return true;
         }
-        return isOk;
+        return false;
     }
 
 }

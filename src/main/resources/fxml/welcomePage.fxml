@@ -7,13 +7,15 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sudoku.javafx.controller.WelcomePageController">
    <children>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="198.0" layoutY="40.0" prefHeight="60.0" prefWidth="205.0" text="Sudoku" textAlignment="CENTER" textFill="#310336">
-         <font>
-            <Font name="FreeSerif Bold" size="50.0" />
-         </font>
-      </Label>
+      <ImageView fitHeight="500.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/background1.png" />
+         </image>
+      </ImageView>
       <Label fx:id="errorLabel" layoutX="240.0" layoutY="190.0" prefHeight="16.0" prefWidth="151.0" />
       <HBox alignment="CENTER" layoutX="110.0" layoutY="261.0" prefHeight="96.0" prefWidth="380.0" spacing="15.0">
          <children>
@@ -34,5 +36,10 @@
             <Font name="FreeSerif" size="20.0" />
          </font>
       </Button>
+      <ImageView fitHeight="201.0" fitWidth="456.0" layoutX="73.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/logo.png" />
+         </image>
+      </ImageView>
    </children>
 </Pane>

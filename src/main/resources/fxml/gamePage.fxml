@@ -12,8 +12,14 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sudoku.javafx.controller.GamePageController">
+<?import javafx.scene.image.Image?>
+<Pane id="gamePanel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sudoku.javafx.controller.GamePageController">
    <children>
+      <ImageView fitHeight="500.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/background2.png" />
+         </image>
+      </ImageView>
       <HBox alignment="CENTER" layoutX="3.0" layoutY="8.0" prefHeight="44.0" prefWidth="594.0">
          <children>
             <Label alignment="CENTER" text="Time: " textAlignment="CENTER">

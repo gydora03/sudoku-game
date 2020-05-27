@@ -1,3 +1,49 @@
 .root {
-    -fx-background-color: #34495e;
+    -fx-background-color: #f1e1d1;
+}
+
+.text-field {
+    -fx-background-color: transparent;
+    -fx-text-fill: #945861;
+    -fx-border: 1px;
+    -fx-border-style: solid;
+    -fx-border-color: top right bottom left;
+    -fx-border-color: transparent transparent #945861 transparent
+}
+
+.label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #46060f;
+}
+
+.button {
+    -fx-background-color: #945861;
+    -fx-text-fill: #fff;
+}
+
+.button:hover {
+    -fx-background-color: #46060f;
+    -fx-text-fill: #fff;
+}
+
+#gamePanel .label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #fff;
+}
+
+#sudokuGrid {
+    -fx-background-color: transparent;
+    -fx-grid-lines-visible: true;
+    -fx-border: 3px;
+    -fx-border-color: #000;
+    -fx-border-style: solid;
+}
+
+#highScoreTable {
+    -fx-background-color: rgba(189, 164, 158, 0.555)
+}
+
+#titlelabel {
+    -fx-font-size: 25px;
+    -fx-font-weight: bold;
 }

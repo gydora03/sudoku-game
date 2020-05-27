@@ -102,13 +102,16 @@ public class ScoresPageController {
         log.debug("{} is pressed", ((Button) actionEvent.getSource()).getText());
         log.info("Loading Launch scene...");
         Parent root = fxmlLoader.load(getClass().getResource("/fxml/welcomePage.fxml"));
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add("css/style.css");
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(root));
+        stage.setScene(scene);
         stage.show();
         SudokuApplication.stage.getScene().setRoot(root);
     }
 
     public void exitGame(ActionEvent actionEvent) throws IOException {
+        log.info("Exit game...");
         Platform.exit();
         System.exit(0);
     }

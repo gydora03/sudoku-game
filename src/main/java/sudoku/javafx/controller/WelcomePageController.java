@@ -40,14 +40,14 @@ public class WelcomePageController {
                 for(int j = 0; j < 9; j++) {
                     SudokuState.currentState[i][j] = SudokuState.initialState[i][j];
                 }
-                System.out.println();
             }
             Scene scene = new Scene(root);
+            scene.getStylesheets().add("css/style.css");
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             stage.setScene(scene);
             stage.show();
             SudokuApplication.stage.getScene().setRoot(root);
-            log.info("The players name is set to {}, loading game scene", playerNameTextField.getText());
+            //log.info("The players name is set to {}, loading game scene", playerNameTextField.getText());
         }
     }
 }

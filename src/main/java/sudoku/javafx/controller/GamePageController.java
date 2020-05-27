@@ -81,8 +81,6 @@ public class GamePageController {
     }
 
 
-
-
     /*@FXML
     public void initialize() {
         stepsLabel.textProperty().bind(steps.asString());
@@ -113,7 +111,7 @@ public class GamePageController {
 
     public void handleResetButton(ActionEvent actionEvent)  {
         log.debug("{} is pressed", ((Button) actionEvent.getSource()).getText());
-        log.info("Resetting game...");
+        log.info("Starting a new game...");
         resetGame();
     }
 
@@ -127,8 +125,10 @@ public class GamePageController {
         log.info("Loading high scores scene...");
 
         Parent root = fxmlLoader.load(getClass().getResource("/fxml/scoresPage.fxml"));
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add("css/style.css");
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(root));
+        stage.setScene(scene);
         stage.show();
         SudokuApplication.stage.getScene().setRoot(root);
     }
@@ -137,12 +137,11 @@ public class GamePageController {
         int row = numbersGrid.getRowIndex((Node) mouseEvent.getSource());
         int col = numbersGrid.getColumnIndex((Node) mouseEvent.getSource());
         pressedButton = row*3+col+1;
-        System.out.println("pressedButton: " + pressedButton);
+        log.info("Pressed button {}.", pressedButton);
     }
 
 
     public void handleClickOnSudokuGrid(MouseEvent mouseEvent) {
-
         int row = sudokuGrid.getRowIndex((Node) mouseEvent.getSource());
         int col = sudokuGrid.getColumnIndex((Node) mouseEvent.getSource());
         log.info("Index ({}, {}) is chosen.", row, col);
@@ -151,14 +150,29 @@ public class GamePageController {
             steps.setValue(steps.get()+1);
             stepsLabel.setText(steps.asString().get());
         }
-
         displayGameState();
-        if (gameState.isGoal()) {
-            gameOver.setValue(true);
-            log.info("Player {} has solved the game in {} steps", playerName, steps.get());
-            resetButton.setDisable(true);
-            giveUpButton.setText("Game Over");
+        int isZero = 0;
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                System.out.print(SudokuState.currentState[i][j] + " ");
+                if (SudokuState.currentState[i][j] == 0) {
+                    isZero++;
+                }
+            }
+            System.out.println();
         }
+        if (isZero == 0) {
+            System.out.println("if isZero = 0, benne vagyunk");
+            if (gameState.isGoal()) {
+                System.out.println("belelepunk a kocsogbe");
+                gameOver.setValue(true);
+                System.out.println("THE GAME IS SOLVED");
+                //log.info("Player {} has solved the game in {} steps", playerName, steps.get());
+                resetButton.setDisable(true);
+                giveUpButton.setText("Game Over");
+            }
+        }
+
     }
 
 
@@ -177,8 +191,6 @@ public class GamePageController {
             }
         }
     }
-
-
 
     private GameResult createGameResult() {
         GameResult result = GameResult.builder()
