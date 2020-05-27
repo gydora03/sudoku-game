@@ -23,6 +23,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.time.DurationFormatUtils;
@@ -58,6 +59,9 @@ public class GamePageController {
 
     @FXML
     private GridPane numbersGrid;
+
+    @FXML
+    private Label messageLabel;
 
     public int pressedButton = 0;
 
@@ -127,14 +131,20 @@ public class GamePageController {
         if (isZero == 0) {
             if (SudokuState.checkForRules()) {
                 gameOver.setValue(true);
+                messageLabel.setText("THE GAME IS SOLVED");
+                messageLabel.setTextFill(Color.web("#46060f"));
                 log.info("THE GAME IS SOLVED");
                 //log.info("Player {} has solved the game in {} steps", playerName, steps.get());
                 resetButton.setDisable(true);
                 giveUpButton.setText("Game Over");
             } else {
-                log.info("The sudoku table is not solved.");
+                messageLabel.setText("The filled sudoku table is not correct.");
+                messageLabel.setTextFill(Color.web("#46060f"));
+                log.info("The filled sudoku table is not correct.");
             }
         } else {
+            messageLabel.setText("The sudoku is not completely filled");
+            messageLabel.setTextFill(Color.web("#46060f"));
             log.info("The sudoku is not completely filled");
         }
     }

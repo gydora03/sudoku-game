@@ -257,5 +257,6 @@
 
          </children>
       </GridPane>
+      <Label fx:id="messageLabel" alignment="CENTER" layoutX="95.0" layoutY="60.0" prefHeight="20.0" prefWidth="400.0" />
    </children>
 </Pane>
