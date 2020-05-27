@@ -25,10 +25,7 @@ public class SudokuState implements Cloneable {
             {0, 7, 0, 0, 0, 4, 0, 0, 0}
     };
 
-    /**
-     * The array representing a goal configuration of the game.
-     */
-    public static final int[][] goalState = {
+    /*public static final int[][] goalState = {
             {5, 3, 8, 4, 6, 1, 7, 9, 2},
             {6, 9, 7, 3, 2, 5, 8, 1, 4},
             {2, 1, 4, 7, 8, 9, 5, 6, 3},
@@ -38,7 +35,7 @@ public class SudokuState implements Cloneable {
             {3, 8, 9, 5, 1, 2, 4, 7, 6},
             {4, 2, 6, 8, 9, 7, 3, 5, 1},
             {1, 7, 5, 6, 3, 4, 2, 8, 9}
-    };
+    };*/
 
     /**
      * The array representing the current configuration of the game.
@@ -55,33 +52,14 @@ public class SudokuState implements Cloneable {
             {0, 7, 0, 0, 0, 4, 0, 0, 0}
     };
 
-    /**
-     * Check the sudoku table
-     *
-     * @return {@code true} if the game is solved, {@code false} otherwise
-     */
-    public boolean checkForSolution() {
-        System.out.println("checkforsolution huhuuu");
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                if (currentState[i][j] == goalState[i][j]) {
-                } else {
-                    return false;
-                }
-            }
-        }
-        return true;
-    }
 
     /**
-     * Checks the sudoku rules.
+     * Checks the filled sudoku table is solved correctly or not.
      *
-     * @return {@code true} if the game is solved and the rules are correct, {@code false} otherwise
+     * @return {@code true} if the game is solved according to the rules, {@code false} otherwise
      */
-    public boolean checkForRules() {
+    public static boolean checkForRules() {
         int sum = 0;
-        System.out.println("checkforRule huhuuu");
-
         for (int row = 0; row < 9; row++) {
             sum = 0;
             for (int col = 0; col < 9; col++) {
@@ -116,15 +94,6 @@ public class SudokuState implements Cloneable {
             }
         }
         return true;
-    }
-
-    public boolean isGoal() {
-        System.out.println("isgoal huhuuu");
-        if (checkForSolution()==true || checkForRules()==true) {
-            System.out.println("isGOAL if");
-            return true;
-        }
-        return false;
     }
 
 }

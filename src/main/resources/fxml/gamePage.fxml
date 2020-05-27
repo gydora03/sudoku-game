@@ -62,7 +62,7 @@
             </Label>
          </children>
       </HBox>
-      <GridPane fx:id="numbersGrid" alignment="CENTER" layoutX="420.0" layoutY="115.0">
+      <GridPane fx:id="numbersGrid" alignment="CENTER" layoutX="420.0" layoutY="103.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="60.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="60.0" />
@@ -121,7 +121,7 @@
             </Button>
          </children>
       </GridPane>
-      <VBox alignment="CENTER" layoutX="445.0" layoutY="312.0" prefHeight="170.0" prefWidth="130.0">
+      <VBox alignment="CENTER" layoutX="433.0" layoutY="300.0" prefHeight="170.0" prefWidth="154.0">
          <children>
             <Button fx:id="resetButton" mnemonicParsing="false" onAction="#handleResetButton" text="New Game">
                <font>
@@ -131,7 +131,7 @@
                   <Insets bottom="10.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="giveUpButton" mnemonicParsing="false" onAction="#handleGiveUpButton" prefWidth="96.0" text="Give Up">
+            <Button fx:id="giveUpButton" mnemonicParsing="false" onAction="#handleGiveUpButton" text="Give Up">
                <font>
                   <Font name="FreeSerif" size="20.0" />
                </font>
@@ -139,7 +139,7 @@
                   <Insets bottom="10.0" top="10.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="checkButton" mnemonicParsing="false" onAction="#handleCheckButton" prefWidth="96.0" text="Check">
+            <Button fx:id="checkButton" mnemonicParsing="false" onAction="#handleCheckButton" text="Check">
                <font>
                   <Font name="FreeSerif" size="20.0" />
                </font>

@@ -84,7 +84,6 @@ public class GamePageController {
         this.playerName = playerName;
     }
 
-
     /*@FXML
     public void initialize() {
         stepsLabel.textProperty().bind(steps.asString());
@@ -126,19 +125,17 @@ public class GamePageController {
             System.out.println();
         }
         if (isZero == 0) {
-            System.out.println("if isZero = 0, benne vagyunk");
-            if (gameState.checkForRules()) {
-                System.out.println("belelepunk a kocsogbe");
-                //gameOver.setValue(true);
-                System.out.println("THE GAME IS SOLVED");
+            if (SudokuState.checkForRules()) {
+                gameOver.setValue(true);
+                log.info("THE GAME IS SOLVED");
                 //log.info("Player {} has solved the game in {} steps", playerName, steps.get());
                 resetButton.setDisable(true);
                 giveUpButton.setText("Game Over");
             } else {
-                System.out.println("The sudoku table is not solved");
+                log.info("The sudoku table is not solved.");
             }
         } else {
-            System.out.println("The sudoku is not completely filled");
+            log.info("The sudoku is not completely filled");
         }
     }
 
@@ -173,7 +170,6 @@ public class GamePageController {
         log.info("Pressed button {}.", pressedButton);
     }
 
-
     public void handleClickOnSudokuGrid(MouseEvent mouseEvent) {
         int row = sudokuGrid.getRowIndex((Node) mouseEvent.getSource());
         int col = sudokuGrid.getColumnIndex((Node) mouseEvent.getSource());
@@ -182,6 +178,8 @@ public class GamePageController {
             SudokuState.currentState[row][col] = pressedButton;
             steps.setValue(steps.get()+1);
             stepsLabel.setText(steps.asString().get());
+        } else {
+            log.info("The chosen element with index ({}, {}) is an initial added element.", row, col);
         }
         displayGameState();
 
@@ -193,7 +191,6 @@ public class GamePageController {
             System.out.println();
         }
     }
-
 
     private void displayGameState() {
         for (int i = 0; i < 9; i++) {
@@ -214,7 +211,7 @@ public class GamePageController {
     private GameResult createGameResult() {
         GameResult result = GameResult.builder()
                 .player(playerName)
-                .solved(gameState.checkForSolution())
+                .solved(SudokuState.checkForRules())
                 .duration(Duration.between(startTime, Instant.now()))
                 .steps(steps.get())
                 .build();

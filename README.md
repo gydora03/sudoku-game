@@ -1,6 +1,8 @@
 # sudoku
 
 The sudoku game.
+The goal: fill the sudoku table according to the rules (each row, column and 3x3 square must contain one piece from each number).
+
 
 ## Requirements
 
