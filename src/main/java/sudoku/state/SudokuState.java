@@ -1,6 +1,7 @@
 package sudoku.state;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -8,7 +9,12 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Data
 @Slf4j
+
 public class SudokuState implements Cloneable {
+
+    public SudokuState() {
+
+    }
 
     /**
      * The array representing the initial configuration of the game.
@@ -40,7 +46,7 @@ public class SudokuState implements Cloneable {
     /**
      * The array representing the current configuration of the game.
      */
-    public static int[][] currentState = {
+    public int[][] currentState = {
             {0, 0, 0, 4, 0, 0, 0, 9, 0},
             {6, 0, 7, 0, 0, 0, 8, 0, 4},
             {0, 1, 0, 7, 0, 9, 0, 0, 3},
@@ -52,13 +58,25 @@ public class SudokuState implements Cloneable {
             {0, 7, 0, 0, 0, 4, 0, 0, 0}
     };
 
+    public SudokuState(int[][] a) {
+        if (!isValidTray(a)) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    private boolean isValidTray(int[][] a) {
+        if (a == null || a.length != 9) {
+            return false;
+        }
+        return true;
+    }
 
     /**
      * Checks the filled sudoku table is solved correctly or not.
      *
      * @return {@code true} if the game is solved according to the rules, {@code false} otherwise
      */
-    public static boolean checkForRules() {
+    public boolean checkForRulesInRow() {
         int sum = 0;
         for (int row = 0; row < 9; row++) {
             sum = 0;
@@ -69,17 +87,25 @@ public class SudokuState implements Cloneable {
                 return false;
             }
         }
+        return true;
+    }
 
+    public boolean checkForRulesInCol() {
+        int sum = 0;
         for (int col = 0; col < 9; col++) {
             sum = 0;
             for (int row = 0; row < 9; row++) {
                 sum = sum + currentState[row][col];
             }
-            if(sum!=45) {
+            if (sum != 45) {
                 return false;
             }
         }
+        return true;
+    }
 
+    public boolean checkForRulesInSquare() {
+        int sum = 0;
         for (int row_offset = 0; row_offset < 9; row_offset+=3) {
             for(int col_offset = 0; col_offset <9; col_offset+=3) {
                 sum = 0;
@@ -93,6 +119,123 @@ public class SudokuState implements Cloneable {
                 }
             }
         }
+        return true;
+    }
+
+    public boolean correctArguments(int row, int col, int number) {
+        if (row < 0 || row > 8 || col < 0 || col > 8 || number < 1 || number > 9) {
+            return false;
+        }
+        return true;
+    }
+
+    public boolean canIPutInRow(int row, int col, int number) {
+
+        for (int i = 0; i < 9; i++) {
+            if (currentState[row][i] == number) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean canIPutInCol(int row, int col, int number) {
+
+        for (int i = 0; i < 9; i++) {
+            if (currentState[i][col] == number) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean canIPutInSquare(int row, int col, int number) {
+
+        int rowBlock=row/3;
+        int colBlock=col/3;
+
+        if(rowBlock==0 && colBlock==0) {
+            for (int i = 0; i < 3; i++) {
+                for (int j = 0; j < 3; j++) {
+                    if (currentState[i][j] == number) {
+                        return false;
+                    }
+                }
+            }
+        }
+        else if(rowBlock==1 && colBlock==0) {
+            for (int i = 3; i < 6; i++) {
+                for (int j = 0; j < 3; j++) {
+                    if (currentState[i][j] == number) {
+                        return false;
+                    }
+                }
+            }
+        }
+        else if(rowBlock==2 && colBlock==0) {
+            for (int i = 6; i < 9; i++) {
+                for (int j = 0; j < 3; j++) {
+                    if (currentState[i][j] == number) {
+                        return false;
+                    }
+                }
+            }
+        }
+        else if(rowBlock==0 && colBlock==1) {
+            for (int i = 0; i < 3; i++) {
+                for (int j = 3; j < 6; j++) {
+                    if (currentState[i][j] == number) {
+                        return false;
+                    }
+                }
+            }
+        }
+        else if(rowBlock==1 && colBlock==1) {
+            for (int i = 3; i < 6; i++) {
+                for (int j = 3; j < 6; j++) {
+                    if (currentState[i][j] == number) {
+                        return false;
+                    }
+                }
+            }
+        }
+        else if(rowBlock==2 && colBlock==1) {
+            for (int i = 6; i < 9; i++) {
+                for (int j = 3; j < 6; j++) {
+                    if (currentState[i][j] == number) {
+                        return false;
+                    }
+                }
+            }
+        }
+        else if(rowBlock==0 && colBlock==2) {
+            for (int i = 0; i < 3; i++) {
+                for (int j = 6; j < 9; j++) {
+                    if (currentState[i][j] == number) {
+                        return false;
+                    }
+                }
+            }
+        }
+        else if(rowBlock==1 && colBlock==2) {
+            for (int i = 3; i < 6; i++) {
+                for (int j = 6; j < 9; j++) {
+                    if (currentState[i][j] == number) {
+                        return false;
+                    }
+                }
+            }
+        }
+        else if(rowBlock==2 && colBlock==2) {
+            for (int i = 6; i < 9; i++) {
+                for (int j = 6; j < 9; j++) {
+                    if (currentState[i][j] == number) {
+                        return false;
+                    }
+                }
+            }
+        }
+
         return true;
     }
 

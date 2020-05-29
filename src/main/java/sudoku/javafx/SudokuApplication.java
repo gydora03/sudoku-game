@@ -15,6 +15,7 @@ import util.guice.PersistenceModule;
 import javax.inject.Inject;
 import java.util.List;
 
+
 @Slf4j
 public class SudokuApplication extends Application {
 

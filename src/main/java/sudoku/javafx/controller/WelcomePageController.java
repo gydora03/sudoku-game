@@ -23,6 +23,8 @@ public class WelcomePageController {
     @Inject
     private FXMLLoader fxmlLoader;
 
+    public SudokuState sudokuState = new SudokuState();
+
     @FXML
     private TextField playerNameTextField;
 
@@ -38,7 +40,7 @@ public class WelcomePageController {
             Parent root = FXMLLoader.load(getClass().getResource("/fxml/gamePage.fxml"));
             for(int i = 0; i < 9; i++) {
                 for(int j = 0; j < 9; j++) {
-                    SudokuState.currentState[i][j] = SudokuState.initialState[i][j];
+                    sudokuState.currentState[i][j] = SudokuState.initialState[i][j];
                 }
             }
             Scene scene = new Scene(root);
