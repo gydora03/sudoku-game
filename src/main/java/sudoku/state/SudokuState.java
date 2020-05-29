@@ -9,11 +9,7 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Data
 @Slf4j
-
 public class SudokuState implements Cloneable {
-
-    public SudokuState() {
-    }
 
     /**
      * The array representing the initial configuration of the game.
@@ -30,18 +26,6 @@ public class SudokuState implements Cloneable {
             {0, 7, 0, 0, 0, 4, 0, 0, 0}
     };
 
-    /*public static final int[][] goalState = {
-            {5, 3, 8, 4, 6, 1, 7, 9, 2},
-            {6, 9, 7, 3, 2, 5, 8, 1, 4},
-            {2, 1, 4, 7, 8, 9, 5, 6, 3},
-            {9, 4, 1, 2, 7, 8, 6, 3, 5},
-            {7, 6, 2, 1, 5, 3, 9, 4, 8},
-            {8, 5, 3, 9, 4, 6, 1, 2, 7},
-            {3, 8, 9, 5, 1, 2, 4, 7, 6},
-            {4, 2, 6, 8, 9, 7, 3, 5, 1},
-            {1, 7, 5, 6, 3, 4, 2, 8, 9}
-    };*/
-
     /**
      * The array representing the current configuration of the game.
      */
@@ -57,6 +41,20 @@ public class SudokuState implements Cloneable {
             {0, 7, 0, 0, 0, 4, 0, 0, 0}
     };
 
+    /**
+     * Creates a {@code SudokuState} object
+     */
+    public SudokuState() { }
+
+    /**
+     * Creates a {@code SudokuState} object that is initialized it with
+     * the specified array.
+     *
+     * @param a an array of size 9&#xd7;9 representing the current configuration
+     *          of the game
+     * @throws IllegalArgumentException if the array does not represent a valid
+     *                                  configuration of the tray
+     */
     public SudokuState(int[][] a) {
         if (!isValidTray(a)) {
             throw new IllegalArgumentException();
@@ -71,9 +69,10 @@ public class SudokuState implements Cloneable {
     }
 
     /**
-     * Checks the filled sudoku table is solved correctly or not.
+     * Checks the rows of the filled sudoku table is solved correctly or not.
      *
-     * @return {@code true} if the game is solved according to the rules, {@code false} otherwise
+     * @return {@code true} if the row of the sudoku table is filled correctly,
+     * {@code false} otherwise
      */
     public boolean checkForRulesInRow() {
         int sum = 0;
@@ -89,6 +88,12 @@ public class SudokuState implements Cloneable {
         return true;
     }
 
+    /**
+     * Checks the colums of the filled sudoku table is solved correctly or not.
+     *
+     * @return {@code true} if the colums of the sudoku table is filled correctly,
+     * {@code false} otherwise
+     */
     public boolean checkForRulesInCol() {
         int sum = 0;
         for (int col = 0; col < 9; col++) {
@@ -103,6 +108,12 @@ public class SudokuState implements Cloneable {
         return true;
     }
 
+    /**
+     * Checks the 3x3 squares of the filled sudoku table is solved correctly or not.
+     *
+     * @return {@code true} if the 3x3 squares of the sudoku table is filled correctly,
+     * {@code false} otherwise
+     */
     public boolean checkForRulesInSquare() {
         int sum = 0;
         for (int row_offset = 0; row_offset < 9; row_offset+=3) {
@@ -121,6 +132,15 @@ public class SudokuState implements Cloneable {
         return true;
     }
 
+    /**
+     * Check the correctness of the arguments added by the user
+     *
+     * @param row the row selected by the user
+     * @param col the column selected by the user
+     * @param number the number selected by the user
+     * @return {@code true} if the arguments selected by the user are corrects,
+     * {@code false} otherwise
+     */
     public boolean correctArguments(int row, int col, int number) {
         if (row < 0 || row > 8) {
             return false;
@@ -132,6 +152,14 @@ public class SudokuState implements Cloneable {
         return true;
     }
 
+    /**
+     * Check the row already contains the number or not
+     *
+     * @param row the row selected by the user
+     * @param number the number selected by the user
+     * @return {@code true} if the row selected by the user already not contains
+     * the number selected by the user, {@code false} otherwise
+     */
     public boolean canIPutInRow(int row, int number) {
 
         for (int i = 0; i < 9; i++) {
@@ -142,6 +170,14 @@ public class SudokuState implements Cloneable {
         return true;
     }
 
+    /**
+     * Check the column already contains the number or not
+     *
+     * @param col the column selected by the user
+     * @param number the number selected by the user
+     * @return {@code true} if the column selected by the user already not contains
+     * the number selected by the user, {@code false} otherwise
+     */
     public boolean canIPutInCol(int col, int number) {
 
         for (int i = 0; i < 9; i++) {
@@ -152,6 +188,15 @@ public class SudokuState implements Cloneable {
         return true;
     }
 
+    /**
+     * Check the 3x3 square already contains the number or not
+     *
+     * @param row the row selected by the user
+     * @param col the column selected by the user
+     * @param number the number selected by the user
+     * @return {@code true} if the 3x3 square already not contains the number
+     * selected by the user, {@code false} otherwise
+     */
     public boolean canIPutInSquare(int row, int col, int number) {
 
         int rowBlock=row/3;

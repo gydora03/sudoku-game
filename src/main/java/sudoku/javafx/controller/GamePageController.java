@@ -135,17 +135,17 @@ public class GamePageController {
 
         if (isZero == 0) {
             if (!sudokuState.checkForRulesInRow()) {
-                messageLabel.setText("The filled sudoku table is not correct, already exists two or more same elment is a row");
+                messageLabel.setText("The filled sudoku table is not correct, already exists two or more same number is a row");
                 messageLabel.setTextFill(Color.web("#46060f"));
-                log.info("The filled sudoku table is not correct, already exists two or more same elment is a row");
+                log.info("The filled sudoku table is not correct, already exists two or more same number is a row");
             } else if (!sudokuState.checkForRulesInCol()) {
-                messageLabel.setText("The filled sudoku table is not correct, already exists two or more same elment is a row");
+                messageLabel.setText("The filled sudoku table is not correct, already exists two or more same number is a column");
                 messageLabel.setTextFill(Color.web("#46060f"));
-                log.info("The filled sudoku table is not correct, already exists two or more same elment is a row");
+                log.info("The filled sudoku table is not correct, already exists two or more same number is a column");
             } else if (!sudokuState.checkForRulesInSquare()) {
-                messageLabel.setText("The filled sudoku table is not correct, already exists two or more same elment is a row");
+                messageLabel.setText("The filled sudoku table is not correct, already exists two or more same number is a 3x3 square");
                 messageLabel.setTextFill(Color.web("#46060f"));
-                log.info("The filled sudoku table is not correct, already exists two or more same elment is a row");
+                log.info("The filled sudoku table is not correct, already exists two or more same number is a 3x3 square");
             } else {
                 gameOver.setValue(true);
                 messageLabel.setText("THE GAME IS SOLVED");
