@@ -13,7 +13,6 @@ import lombok.extern.slf4j.Slf4j;
 public class SudokuState implements Cloneable {
 
     public SudokuState() {
-
     }
 
     /**
@@ -123,13 +122,17 @@ public class SudokuState implements Cloneable {
     }
 
     public boolean correctArguments(int row, int col, int number) {
-        if (row < 0 || row > 8 || col < 0 || col > 8 || number < 1 || number > 9) {
+        if (row < 0 || row > 8) {
+            return false;
+        } else if (col < 0 || col > 8) {
+            return false;
+        } else if (number < 1 || number > 9) {
             return false;
         }
         return true;
     }
 
-    public boolean canIPutInRow(int row, int col, int number) {
+    public boolean canIPutInRow(int row, int number) {
 
         for (int i = 0; i < 9; i++) {
             if (currentState[row][i] == number) {
@@ -139,7 +142,7 @@ public class SudokuState implements Cloneable {
         return true;
     }
 
-    public boolean canIPutInCol(int row, int col, int number) {
+    public boolean canIPutInCol(int col, int number) {
 
         for (int i = 0; i < 9; i++) {
             if (currentState[i][col] == number) {

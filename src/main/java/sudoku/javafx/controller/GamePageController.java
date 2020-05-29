@@ -46,7 +46,7 @@ public class GamePageController {
     @Inject
     private FXMLLoader fxmlLoader;
 
-    private WelcomePageController welcomePageController = new WelcomePageController();
+    private SudokuState sudokuState = new SudokuState();
 
     @Inject
     private GameResultDao gameResultDao;
@@ -107,7 +107,7 @@ public class GamePageController {
     private void resetGame() {
         for(int i = 0; i < 9; i++) {
             for(int j = 0; j < 9; j++) {
-                welcomePageController.sudokuState.currentState[i][j] = SudokuState.initialState[i][j];
+                sudokuState.currentState[i][j] = SudokuState.initialState[i][j];
             }
         }
         gameState = new SudokuState(SudokuState.initialState);
@@ -125,8 +125,8 @@ public class GamePageController {
 
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
-                System.out.print(welcomePageController.sudokuState.currentState[i][j] + " ");
-                if (welcomePageController.sudokuState.currentState[i][j] == 0) {
+                System.out.print(sudokuState.currentState[i][j] + " ");
+                if (sudokuState.currentState[i][j] == 0) {
                     isZero++;
                 }
             }
@@ -134,15 +134,15 @@ public class GamePageController {
         }
 
         if (isZero == 0) {
-            if (!welcomePageController.sudokuState.checkForRulesInRow()) {
+            if (!sudokuState.checkForRulesInRow()) {
                 messageLabel.setText("The filled sudoku table is not correct, already exists two or more same elment is a row");
                 messageLabel.setTextFill(Color.web("#46060f"));
                 log.info("The filled sudoku table is not correct, already exists two or more same elment is a row");
-            } else if (!welcomePageController.sudokuState.checkForRulesInCol()) {
+            } else if (!sudokuState.checkForRulesInCol()) {
                 messageLabel.setText("The filled sudoku table is not correct, already exists two or more same elment is a row");
                 messageLabel.setTextFill(Color.web("#46060f"));
                 log.info("The filled sudoku table is not correct, already exists two or more same elment is a row");
-            } else if (!welcomePageController.sudokuState.checkForRulesInSquare()) {
+            } else if (!sudokuState.checkForRulesInSquare()) {
                 messageLabel.setText("The filled sudoku table is not correct, already exists two or more same elment is a row");
                 messageLabel.setTextFill(Color.web("#46060f"));
                 log.info("The filled sudoku table is not correct, already exists two or more same elment is a row");
@@ -171,7 +171,7 @@ public class GamePageController {
     public void handleGiveUpButton(ActionEvent actionEvent) throws IOException {
         for(int i = 0; i < 9; i++) {
             for(int j = 0; j < 9; j++) {
-                welcomePageController.sudokuState.currentState[i][j] = SudokuState.initialState[i][j];
+                sudokuState.currentState[i][j] = SudokuState.initialState[i][j];
             }
         }
         gameOver.setValue(true);
@@ -199,25 +199,25 @@ public class GamePageController {
         log.info("Index ({}, {}) is chosen.", row, col);
         if (SudokuState.initialState[row][col]==0) {
             messageLabel.setText("");
-            if (!welcomePageController.sudokuState.correctArguments(row, col, pressedButton)) {
+            if (!sudokuState.correctArguments(row, col, pressedButton)) {
                 messageLabel.setText("The arguments are incorrect");
                 messageLabel.setTextFill(Color.web("#46060f"));
                 log.info("The arguments are incorrect");
             } else {
-                if (!welcomePageController.sudokuState.canIPutInRow(row, col, pressedButton)) {
+                if (!sudokuState.canIPutInRow(row, pressedButton)) {
                     messageLabel.setText("The number is already exist in this row");
                     messageLabel.setTextFill(Color.web("#46060f"));
                     log.info("The number {} is already exist in row {}", pressedButton, row);
-                } else if (!welcomePageController.sudokuState.canIPutInCol(row, col, pressedButton)) {
+                } else if (!sudokuState.canIPutInCol(col, pressedButton)) {
                     messageLabel.setText("The number is already exist in this col");
                     messageLabel.setTextFill(Color.web("#46060f"));
                     log.info("The number {} is already exist in col {}", pressedButton, col);
-                } else if (!welcomePageController.sudokuState.canIPutInSquare(row, col, pressedButton)) {
+                } else if (!sudokuState.canIPutInSquare(row, col, pressedButton)) {
                     messageLabel.setText("The number is already exist in this 3x3 square");
                     messageLabel.setTextFill(Color.web("#46060f"));
                     log.info("The number {} is already exist in this 3x3 square", pressedButton);
                 } else {
-                    welcomePageController.sudokuState.currentState[row][col] = pressedButton;
+                    sudokuState.currentState[row][col] = pressedButton;
                     steps.setValue(steps.get()+1);
                     stepsLabel.setText(steps.asString().get());
                 }
@@ -232,7 +232,7 @@ public class GamePageController {
         log.info("The current state:");
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
-                System.out.print(welcomePageController.sudokuState.currentState[i][j] + " ");
+                System.out.print(sudokuState.currentState[i][j] + " ");
             }
             System.out.println();
         }
@@ -245,10 +245,10 @@ public class GamePageController {
                 if (view.getImage() != null) {
                     log.trace("Image({}, {}) = {}", i, j, view.getImage().getUrl());
                 }
-                if(welcomePageController.sudokuState.currentState[i][j] == 0){
+                if(sudokuState.currentState[i][j] == 0){
                     view.setImage(SudokuApplication.numberImages.get(0));
                 } else {
-                    view.setImage(SudokuApplication.numberImages.get(welcomePageController.sudokuState.currentState[i][j]));
+                    view.setImage(SudokuApplication.numberImages.get(sudokuState.currentState[i][j]));
                 }
             }
         }
@@ -257,9 +257,9 @@ public class GamePageController {
     private GameResult createGameResult() {
         GameResult result = GameResult.builder()
                 .player(playerName)
-                .solved(welcomePageController.sudokuState.checkForRulesInRow()
-                        && welcomePageController.sudokuState.checkForRulesInCol()
-                        && welcomePageController.sudokuState.checkForRulesInSquare())
+                .solved(sudokuState.checkForRulesInRow()
+                        && sudokuState.checkForRulesInCol()
+                        && sudokuState.checkForRulesInSquare())
                 .duration(Duration.between(startTime, Instant.now()))
                 .steps(steps.get())
                 .build();
